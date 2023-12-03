@@ -5,10 +5,11 @@ using eCommerceBot.Domains.Enums;
 
 namespace eCommerceBot.Domains.Entities;
 
+[Table("users", Schema = "ecommerce")]
 public class User : ModelBase
 {
-    [Column(nameof(Fio))] public string Fio { get; set; }
-    [Column(nameof(PhoneNumber))] public string PhoneNumber { get; set; }
-    [Column(nameof(Password))] public string Password { get; set; }
-    [Column(nameof(Status))] public UserStatus Status { get; set; }
+    [Column("fio")] public string Fio { get; set; }
+    [Column("phone_number")] public string PhoneNumber { get; set; }
+    [Column("password")] public string Password { get; set; }
+    [Column("status")] public UserStatus Status { get; set; }
 }
