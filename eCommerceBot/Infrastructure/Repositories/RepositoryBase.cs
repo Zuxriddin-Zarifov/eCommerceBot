@@ -11,7 +11,8 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : ModelBase
 
     public RepositoryBase(DbContext context)
     {
-        _context = context; }
+        _context = context;
+    }
 
     public DbSet<T> DbSet()
     {
@@ -28,19 +29,22 @@ public class RepositoryBase<T> : IRepositoryBase<T> where T : ModelBase
     public async ValueTask<T> CreatAsync(T data)
     {
         var entity = await this.DbSet().AddAsync(data);
+        await _context.SaveChangesAsync();
         return entity.Entity;
     }
 
     public async ValueTask<T> UpdateAsync(T data)
     {
         var entity = this.DbSet().Update(data);
+        await _context.SaveChangesAsync();
         return entity.Entity;
     }
 
     public async ValueTask<T> DeleteAsync(long id)
     {
-        var data =await this.GetByIdAsync(id);
+        var data = await this.GetByIdAsync(id);
         var entity = this.DbSet().Remove(data);
-        return entity.Entity; 
+        await _context.SaveChangesAsync();
+        return entity.Entity;
     }
 }

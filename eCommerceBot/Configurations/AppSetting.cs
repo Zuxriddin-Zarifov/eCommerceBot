@@ -1,4 +1,4 @@
-﻿namespace eCommerceBot.Settings;
+﻿namespace eCommerceBot.Configurations;
 
 public static class AppSetting
 {

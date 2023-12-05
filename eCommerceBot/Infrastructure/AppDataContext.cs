@@ -1,5 +1,5 @@
 ﻿using eCommerceBot.Domains.Entities;
-using eCommerceBot.Settings;
+using eCommerceBot.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace eCommerceBot.Infrastructure;
